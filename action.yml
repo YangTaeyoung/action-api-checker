@@ -1,0 +1,48 @@
+name: "API Check during CI/CD"
+description: "Check the API"
+inputs:
+  retry:
+    description: "The number of times to retry the request if it fails"
+    required: false
+    default: "3"
+  minimum_passes:
+    description: "The minimum number of successful requests"
+    required: false
+    default: "1"
+  url:
+    description: "The URL of the API"
+    required: true
+    default: "https://example.com"
+  method:
+    description: "The HTTP method to use"
+    required: true
+    default: "GET"
+  request_headers:
+    description: "The headers to include in the request"
+    required: false
+    default: ""
+  request_body:
+    description: "The body to include in the request"
+    required: false
+    default: ""
+  expected_status:
+    description: "The expected HTTP status code"
+    required: true
+    default: "200"
+  expected_headers:
+    description: "The expected headers in the response"
+    required: false
+    default: ""
+  expected_body:
+    description: "The expected body in the response"
+    required: false
+    default: ""
+  timeout:
+    description: "The maximum time to wait for the request to complete"
+    required: false
+    default: "30s"
+runs:
+  using: "node20"
+  main: "index.js"
+
+
