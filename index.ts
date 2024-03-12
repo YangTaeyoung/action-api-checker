@@ -34,6 +34,7 @@ async function apiCheck() {
     };
 
     let passCount:number = 0;
+
     for(let i=0; i<maxRetries; i++) {
         try {
             const response = await axios(options);
@@ -59,15 +60,18 @@ async function apiCheck() {
                     }
                 }
 
+
                 if(isPass) {
                     passCount++;
+
+                    core.info(`API passed: ${response.status} count: ${passCount} out of ${expectedPassCount}`)
+
                     if(passCount === expectedPassCount)
                         break;
                 }
             }
             else {
                 core.info(`API returned status ${response.status}, but expected ${expectedStatus}`);
-                break;
             }
         }
         catch(error) {
