@@ -44,7 +44,7 @@ async function apiCheck() {
                 // Validate headers
                 for(const key in expectedHeaders) {
                     if(response.headers[key] !== expectedHeaders[key]) {
-                        core.setFailed(`Header ${key} returned ${response.headers[key]}, but expected ${expectedHeaders[key]}`);
+                        core.info(`Header ${key} returned ${response.headers[key]}, but expected ${expectedHeaders[key]}`);
                         isPass = false;
                         break;
                     }
@@ -54,7 +54,7 @@ async function apiCheck() {
                 if(isPass && expectedBody) {
                     const responseBody = response.data;
                     if(!isEqual(responseBody, expectedBody)) {
-                        core.setFailed(`Body returned ${JSON.stringify(responseBody)}, but expected ${JSON.stringify(expectedBody)}`);
+                        core.info(`Body returned ${JSON.stringify(responseBody)}, but expected ${JSON.stringify(expectedBody)}`);
                         isPass = false;
                     }
                 }
@@ -66,7 +66,7 @@ async function apiCheck() {
                 }
             }
             else {
-                core.setFailed(`API returned status ${response.status}, but expected ${expectedStatus}`);
+                core.info(`API returned status ${response.status}, but expected ${expectedStatus}`);
                 break;
             }
         }

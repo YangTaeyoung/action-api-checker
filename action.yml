@@ -22,7 +22,7 @@ inputs:
     required: false
     default: ""
   request_body:
-    description: "The body to include in the request (format: JSON)"
+    description: "The body to include in the request (example: {\"key1\":\"value1\",\"key2\":\"value\"})"
     required: false
     default: ""
   expected_pass_count:
