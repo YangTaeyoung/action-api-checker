@@ -12,7 +12,7 @@ inputs:
   url:
     description: "The URL of the API"
     required: true
-    default: "https://example.com"
+    default: "https://www.google.com"
   method:
     description: "The HTTP method to use"
     required: true
@@ -45,6 +45,9 @@ inputs:
     description: "The maximum time to wait for the request to complete (milliseconds)"
     required: false
     default: "3000"
+branding:
+  icon: "check-circle"
+  color: "green"
 runs:
   using: "node20"
   main: "dist/index.js"
